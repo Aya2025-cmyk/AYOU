@@ -6,9 +6,9 @@ import base64
 import numpy as np
 import streamlit.components.v1 as components
 
-st.markdown("<h1 style='text-align: center; color: black;'>SCARPER LES DONNEES</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: #FF8C00;'>SCARPER LES DONNEES</h1>", unsafe_allow_html=True)
 
-st.markdown(""" color:black;
+st.markdown(""" 
 Cette application effectue le webscraping des données de Coin Afrique sur plusieurs pages. 
 Et nous pouvons également télécharger les données extraites de l'application directement sans les extraire. 
 * **Bibliothèques Python :** base64, pandas, streamlit, requests, bs4 
@@ -36,7 +36,7 @@ def add_bg_from_local(image_file):
     }}
     
     .stButton>button {{
-        background-color: #333333; /* Gris foncé */
+        background-color: #FF8C00; 
         border-radius: 10px;
         border: none;
         padding: 8px 15px;
@@ -44,7 +44,7 @@ def add_bg_from_local(image_file):
     }}
     
     .stButton>button:hover {{
-        background-color: #555555; /* Gris plus clair au survol */
+        background-color: #FF8C00; 
     }}
 </style>
 
