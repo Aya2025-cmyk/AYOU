@@ -38,7 +38,7 @@ def add_bg_from_local(image_file):
     }}
     
     .stMarkdown, .stTextInput, .stButton>button {{
-        color: #F5F5DC;
+        color: #FFD700 ;
         font-family: 'Poppins', sans-serif;
     }}
     
@@ -51,7 +51,7 @@ def add_bg_from_local(image_file):
     }}
     
     .stButton>button:hover {{
-        background-color: #555555; /* Gris plus clair au survol */
+        background-color: #FFD700 ; /* Gris plus clair au survol */
     }}
 </style>
 
@@ -61,7 +61,7 @@ def add_bg_from_local(image_file):
 
 
 # Fond d'écran de l'application
-add_bg_from_local("picture.webp")
+add_bg_from_local("orange.webp")
 
 # Fonction pour convertir un DataFrame en CSV
 @st.cache_data
