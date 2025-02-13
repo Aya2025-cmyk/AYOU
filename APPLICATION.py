@@ -6,54 +6,62 @@ import base64
 import numpy as np
 import streamlit.components.v1 as components
 
-st.markdown("<h1>SCARPER LES DONNEES</h1>", unsafe_allow_html=True)
 
-st.markdown(""" 
-Cette application effectue le webscraping des données de Coin Afrique sur plusieurs pages. 
-Et nous pouvons également télécharger les données extraites de l'application directement sans les extraire. 
-* **Bibliothèques Python :** base64, pandas, streamlit, requests, bs4 
-* **Source des données :** https://sn.coinafrique.com/categorie/vetements-enfants --https://sn.coinafrique.com/categorie/chaussures-enfants.
-""")
+st.markdown("""
+<h2 style="text-align: center; color: orange;">📌 Scarper les données</h2>
+
+Cette application effectue le **webscraping** des données de Coin Afrique sur plusieurs pages.  
+Et nous pouvons également **télécharger les données extraites** de l'application directement sans les extraire.  
+
+### 📚 Bibliothèques Python :
+- **base64, pandas, streamlit, requests, bs4**  
+
+### 🔗 Source des données :
+- [Vêtements enfants](https://sn.coinafrique.com/categorie/vetements-enfants)  
+- [Chaussures enfants](https://sn.coinafrique.com/categorie/chaussures-enfants)  
+""", unsafe_allow_html=True)
+
 
 # PARTIE 1
-# Fond principal 
-body {
-    background: linear-gradient(to bottom, #2E8B57, #F5F5DC); /* Dégradé vert sapin → beige */
-    color: white;
-    font-family: 'Poppins', sans-serif;
-}
+# Fonction du background
+def add_bg_from_local(image_file):
+    with open(image_file, "rb") as image_file:
+        encoded_string = base64.b64encode(image_file.read())
+    st.markdown(
+    f"""
+   <style>
+    .stApp {{
+        background-image: url(data:image/webp;base64,{encoded_string.decode()});
+        background-size: cover;
+        background-color: #000000; /* Noir */
+        color: #000000; /* Noir */
+    }}
+    
+    .stMarkdown, .stTextInput, .stButton>button {{
+        color: #ffffff;
+        font-family: 'Poppins', sans-serif;
+    }}
+    
+    .stButton>button {{
+        background-color: #333333; /* Gris foncé */
+        border-radius: 10px;
+        border: none;
+        padding: 8px 15px;
+        transition: 0.3s ease-in-out;
+    }}
+    
+    .stButton>button:hover {{
+        background-color: #555555; /* Gris plus clair au survol */
+    }}
+</style>
 
-#titres
-h1, h2 {
-    color: #FFD700; /* Doré */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-# Boutons 
-button {
-    background: linear-gradient(to right, #FF8C00, #FFD700);
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 10px;
-    transition: 0.3s;
-}
-
-button:hover {
-    background: linear-gradient(to right, #FFA500, #FFEC8B);
-    transform: scale(1.05);
-}
-
-#Menu latéral 
-.sidebar {
-    background: linear-gradient(to bottom, #FF8C00, #FFD700); /* Orange → Doré */
-    color: white;
-}
+    """,
+    unsafe_allow_html=True
+)
 
 
 # Fond d'écran de l'application
-#add_bg_from_local("picture.webp")
+add_bg_from_local("picture.webp")
 
 # Fonction pour convertir un DataFrame en CSV
 @st.cache_data
