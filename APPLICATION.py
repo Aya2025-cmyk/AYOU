@@ -33,17 +33,17 @@ def add_bg_from_local(image_file):
     .stApp {{
         background-image: url(data:image/webp;base64,{encoded_string.decode()});
         background-size: cover;
-        background-color: #000000; /* Noir */
+        background-color: #FFFFFF; /* Noir */
         color: #000000; /* Noir */
     }}
     
     .stMarkdown, .stTextInput, .stButton>button {{
-        color: #FFD700 ;
+        color: #FFFFFF ;
         font-family: 'Poppins', sans-serif;
     }}
     
     .stButton>button {{
-        background-color: #FFD700; 
+        background-color:#FFFFFF; 
         border-radius: 10px;
         border: none;
         padding: 8px 15px;
@@ -51,7 +51,7 @@ def add_bg_from_local(image_file):
     }}
     
     .stButton>button:hover {{
-        background-color: #FFD700 ; /* Gris plus clair au survol */
+        background-color: #FFFFFF ; /* Gris plus clair au survol */
     }}
 </style>
 
