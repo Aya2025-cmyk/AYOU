@@ -8,7 +8,7 @@ import streamlit.components.v1 as components
 
 
 st.markdown("""
-<h2 style="text-align: center; color: orange;">📌 SCARPER LES DONNES</h2>
+<h2 style="text-align: center; color: #5D4037;">📌 SCARPER LES DONNES</h2>
 
 Cette application effectue le **webscraping** des données de Coin Afrique sur plusieurs pages.  
 Et nous pouvons également **télécharger les données extraites** de l'application directement sans les extraire.  
@@ -43,7 +43,7 @@ def add_bg_from_local(image_file):
     }}
     
     .stButton>button {{
-        background-color:#FFFFFF; 
+        background-color:#5D4037; 
         border-radius: 10px;
         border: none;
         padding: 8px 15px;
