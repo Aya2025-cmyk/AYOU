@@ -43,7 +43,7 @@ def add_bg_from_local(image_file):
     }}
     
     .stButton>button {{
-        background-color:#000000; 
+        background-color:#FFD700; 
         border-radius: 10px;
         border: none;
         padding: 8px 15px;
