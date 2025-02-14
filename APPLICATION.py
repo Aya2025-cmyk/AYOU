@@ -160,6 +160,23 @@ Category = st.sidebar.selectbox("Options", ["Scrape les données avec beautifulS
 # Fonction pour injecter du CSS personnalisé
 def local_css(css):
     st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
+def chatbot_response(user_input):
+    responses = {
+        "bonjour": "Bonjour ! Comment puis-je vous aider aujourd’hui ?",
+        "comment scraper les données ?": "Vous pouvez choisir une catégorie dans la barre latérale et cliquer sur 'Scraper les données'.",
+        "comment télécharger les données ?": "Après avoir scrappé les données, un bouton 'Télécharger les données en CSV' apparaîtra.",
+        "comment voir les images des produits ?": "Les images sont extraites avec les données, nous pouvons les afficher en activant cette option.",
+        "merci": "De rien ! 😊 N'hésitez pas si vous avez d'autres questions."
+    }
+    
+    return responses.get(user_input.lower(), "Désolé, je ne comprends pas cette question. Essayez une autre !")
+
+st.sidebar.header("🗨️ Chatbot d'Aide")
+user_query = st.sidebar.text_input("Posez votre question :", "")
+
+if user_query:
+    response = chatbot_response(user_query)
+    st.sidebar.write(f"🤖 {response}")
 
 
 
