@@ -164,22 +164,21 @@ def local_css(css):
     st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
 def chatbot_response(user_input):
     responses = {
-        "bonjour": "Bonjour ! Comment puis-je vous aider aujourd’hui ?",
         "comment scraper les données ?": "Vous pouvez choisir une catégorie dans la barre latérale le nombre de pages que vous souhaitez scarper et cliquer sur 'Scraper les données'.",
         "comment télécharger les données ?": "Après avoir scrappé les données, un bouton 'Télécharger les données en CSV' apparaîtra.",
-        "comment voir les images des produits ?": "Les images sont extraites avec les données, nous pouvons les afficher en activant cette option.",
-        "merci": "De rien ! 😊 N'hésitez pas si vous avez d'autres questions."
+        "comment voir les images des produits ?": "Les images sont extraites avec les données, nous pouvons les afficher en activant cette option."
+        
     }
     
     return responses.get(user_input.lower(), "Désolé, je ne comprends pas cette question. Essayez une autre !")
 
 st.sidebar.header("🗨️ Chatbot d'Aide")
 questions = [
-    "Bonjour",
+
     "Comment scraper les données ?",
     "Comment télécharger les données ?",
-    "Comment voir les images des produits ?",
-    "Merci"
+    "Comment voir les images des produits ?"
+    
 ]
 
 selected_question = st.sidebar.radio("Sélectionnez une question :", questions)
@@ -213,4 +212,4 @@ elif Category == "Formulaire avec koblox":
     components.iframe("https://ee.kobotoolbox.org/x/lWB14KiL", width=800, height=1100)
 
 elif Category == "Formulaire avec Google Forms":
-    components.iframe("https://docs.google.com/forms/d/e/1FAIpQLScuuEKdEs1FmIeYDq3TrUT2TiNqc1OIT7GPG0hCa2fx52_q_A/viewform?usp=preview", width=800, height=1100)
+    components.iframe("https://docs.google.com/forms/d/1TKojWFb0YSTv-5KgdM_QPsLWmut9OiMnaRHfVdni8u8/previewResponse", width=800, height=1100)
