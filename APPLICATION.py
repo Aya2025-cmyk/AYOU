@@ -172,10 +172,37 @@ def chatbot_response(user_input):
     return responses.get(user_input.lower(), "Désolé, je ne comprends pas cette question. Essayez une autre !")
 
 st.sidebar.header("🗨️ Chatbot d'Aide")
-user_query = st.sidebar.text_input("Posez votre question :", "")
+questions = [
+    "Bonjour",
+    "Comment scraper les données ?",
+    "Comment télécharger les données ?",
+    "Comment voir les images des produits ?",
+    "Merci"
+]
 
-if user_query:
-    response = chatbot_response(user_query)
+selected_question = st.sidebar.radio("Sélectionnez une question :", questions)
+
+if selected_question:
+    response = chatbot_response(selected_question)
+    st.sidebar.write(f"🤖 {response}")
+
+def recognize_speech():
+    recognizer = sr.Recognizer()
+    with sr.Microphone() as source:
+        st.sidebar.write("🎤 Parlez maintenant...")
+        try:
+            audio = recognizer.listen(source, timeout=5)
+            user_input = recognizer.recognize_google(audio, language="fr-FR")
+            return user_input
+        except sr.UnknownValueError:
+            return "Je n'ai pas compris, pouvez-vous répéter ?"
+        except sr.RequestError:
+            return "Erreur avec le service de reconnaissance vocale."
+
+if st.sidebar.button("🎙️ Parler au Chatbot"):
+    user_voice_input = recognize_speech()
+    response = chatbot_response(user_voice_input)
+    st.sidebar.write(f"👤 {user_voice_input}")
     st.sidebar.write(f"🤖 {response}")
 
 
