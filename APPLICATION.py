@@ -212,4 +212,4 @@ elif Category == "Formulaire avec koblox":
     components.iframe("https://ee.kobotoolbox.org/x/lWB14KiL", width=800, height=1100)
 
 elif Category == "Formulaire avec Google Forms":
-    components.iframe("https://docs.google.com/forms/d/1TKojWFb0YSTv-5KgdM_QPsLWmut9OiMnaRHfVdni8u8/preview", width=800, height=1100)
+    components.iframe("https://docs.google.com/forms/d/e/1FAIpQLScuuEKdEs1FmIeYDq3TrUT2TiNqc1OIT7GPG0hCa2fx52_q_A/viewform?usp=preview", width=800, height=1100)
