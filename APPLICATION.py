@@ -33,12 +33,12 @@ def add_bg_from_local(image_file):
     .stApp {{
         background-image: url(data:image/webp;base64,{encoded_string.decode()});
         background-size: cover;
-        background-color: #FFFF00; /* Noir */
+        background-color:  #00008B; /* Noir */
         color: #000000; /* Noir */
     }}
     
     .stMarkdown, .stTextInput, .stButton>button {{
-        color: #FFFF00 ;
+        color:  #00008B ;
         font-family: 'Poppins', sans-serif;
     }}
     
