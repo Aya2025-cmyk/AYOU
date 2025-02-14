@@ -152,6 +152,41 @@ def scrape_chaussures_data(plusieurs_page):
         df = pd.concat([df, DF1], axis=0).reset_index(drop=True)
     return df
 
+# Interface utilisateur
+st.sidebar.header("🎯 Définir votre budget")
+user_budget = st.sidebar.number_input("Entrez votre budget (CFA)", min_value=0, value=10000, step=500)
+
+st.sidebar.header("📌 Préférences de recherche")
+type_produit = st.sidebar.text_input("Type de produit (ex: robe, pantalon, veste...)")
+localisation = st.sidebar.text_input("Localisation (ex: Dakar, Thiès...)")
+
+# Bouton pour scraper et filtrer les données
+if st.sidebar.button("🔎 Rechercher des produits"):
+    st.subheader("🛍️ Résultats pour votre budget")
+    df_vetements = scrape_vetements_data(2)  # Scraper 2 pages
+    
+    # Filtrage des produits selon budget et préférences
+    filtered_df = df_vetements[df_vetements["Prix"] <= user_budget]
+    if type_produit:
+        filtered_df = filtered_df[filtered_df["Type"].str.contains(type_produit, case=False, na=False)]
+    if localisation:
+        filtered_df = filtered_df[filtered_df["Adresse"].str.contains(localisation, case=False, na=False)]
+    
+    if not filtered_df.empty:
+        st.dataframe(filtered_df)
+        st.success(f"✅ {len(filtered_df)} produits trouvés dans votre budget !")
+    else:
+        st.warning("❌ Aucun produit ne correspond à vos critères.")
+
+
+
+
+
+
+
+
+
+
 # PARTIE 4
 st.sidebar.header("Saisie de l'utilisateur")
 Pages = st.sidebar.selectbox('Pages', list(np.arange(2, 30)))
