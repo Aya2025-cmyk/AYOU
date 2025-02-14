@@ -165,7 +165,7 @@ def local_css(css):
 def chatbot_response(user_input):
     responses = {
         "bonjour": "Bonjour ! Comment puis-je vous aider aujourd’hui ?",
-        "comment scraper les données ?": "Vous pouvez choisir une catégorie dans la barre latérale et cliquer sur 'Scraper les données'.",
+        "comment scraper les données ?": "Vous pouvez choisir une catégorie dans la barre latérale le nombre de pages que vous souhaitez scarper et cliquer sur 'Scraper les données'.",
         "comment télécharger les données ?": "Après avoir scrappé les données, un bouton 'Télécharger les données en CSV' apparaîtra.",
         "comment voir les images des produits ?": "Les images sont extraites avec les données, nous pouvons les afficher en activant cette option.",
         "merci": "De rien ! 😊 N'hésitez pas si vous avez d'autres questions."
@@ -187,26 +187,6 @@ selected_question = st.sidebar.radio("Sélectionnez une question :", questions)
 if selected_question:
     response = chatbot_response(selected_question)
     st.sidebar.write(f"🤖 {response}")
-
-def recognize_speech():
-    recognizer = sr.Recognizer()
-    with sr.Microphone() as source:
-        st.sidebar.write("🎤 Parlez maintenant...")
-        try:
-            audio = recognizer.listen(source, timeout=5)
-            user_input = recognizer.recognize_google(audio, language="fr-FR")
-            return user_input
-        except sr.UnknownValueError:
-            return "Je n'ai pas compris, pouvez-vous répéter ?"
-        except sr.RequestError:
-            return "Erreur avec le service de reconnaissance vocale."
-
-if st.sidebar.button("🎙️ Parler au Chatbot"):
-    user_voice_input = recognize_speech()
-    response = chatbot_response(user_voice_input)
-    st.sidebar.write(f"👤 {user_voice_input}")
-    st.sidebar.write(f"🤖 {response}")
-
 
 
 
