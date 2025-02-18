@@ -8,7 +8,7 @@ import streamlit.components.v1 as components
 
 
 st.markdown("""
-<h2 style="text-align: center; color: green;">📌 SCARPER LES DONNES</h2>
+<h2 style="text-align: center; color: black;">📌 SCARPER LES DONNES</h2>
 
 Cette application effectue le **webscraping** des données de Coin Afrique sur plusieurs pages.  
 Et nous pouvons également **télécharger les données extraites** de l'application directement sans les extraire.  
